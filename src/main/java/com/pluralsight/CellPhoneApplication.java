@@ -1,14 +1,13 @@
 package com.pluralsight;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class CellPhoneApplication {
 
-    private Scanner getInput = new Scanner(System.in);
+    private static final Scanner getInput = new Scanner(System.in);
 
     public static void main(String[] args) {
-        
+
         CellPhone myPhone = new CellPhone();
 
         System.out.println("What is the serial number?");
@@ -32,16 +31,18 @@ public class CellPhoneApplication {
         String owner = getInput.nextLine();
         myPhone.setOwner(owner);
 
-
+        //displaying my phone
         display(myPhone);
+
+        //your phone
+        CellPhone yourPhone = new CellPhone(14027502, "iPhone 15", "AT&T", "(170) 340-2108", "Margaret");
+        yourPhone.dial(myPhone.getPhoneNumber());
+
+        //display your phone
+        display(yourPhone);
 
         System.out.println("What number do you want to dial?");
         myPhone.dial(getInput.nextLine());
-
-
-
-
-
 
     }
 
