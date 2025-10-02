@@ -4,8 +4,11 @@ import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class CellPhoneApplication {
+
+    private Scanner getInput = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner getInput = new Scanner(System.in);
+        
         CellPhone myPhone = new CellPhone();
 
         System.out.println("What is the serial number?");
@@ -29,6 +32,9 @@ public class CellPhoneApplication {
         String owner = getInput.nextLine();
         myPhone.setOwner(owner);
 
+
+        display(myPhone);
+
         System.out.println("What number do you want to dial?");
         myPhone.dial(getInput.nextLine());
 
@@ -38,4 +44,16 @@ public class CellPhoneApplication {
 
 
     }
+
+    private static void display(CellPhone phone) {
+        System.out.println("-----------------------");
+        System.out.printf("CELL PHONE [SN:%d]\n", phone.getSerialNumber());
+        System.out.printf("    OWNER: %s\n", phone.getOwner());
+        System.out.printf("    MODEL: %s\n", phone.getModel());
+        System.out.printf("    CARRIER: %s\n", phone.getCarrier());
+        System.out.printf("    NUMBER: %s\n", phone.getPhoneNumber());
+        System.out.println("-----------------------");
+    }
+
+
 }
